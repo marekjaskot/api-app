@@ -1,6 +1,7 @@
 /**
  * Created by Marek on 24.05.2016.
  */
+var config = require('./config');
 var express = require('express'),
     bodyParser = require('body-parser'),
     oauthserver = require('oauth2-server'),
@@ -8,6 +9,9 @@ var express = require('express'),
 
 
 var app = express();
+
+app.set('env', process.env.NODE_ENV || 'development');
+app.set('port', process.env.PORT || 3000);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -26,5 +30,4 @@ app.get('/', app.oauth.authorise(), function (req, res) {
 });
 
 app.use(app.oauth.errorHandler());
-
-app.listen(3000);
+app.listen(app.get('port'));

@@ -1,0 +1,5 @@
+{
+  "db": "127.0.0.1/api-app",
+  "rootURL": "http://localhost:3000",
+  "authorizedClientIds"
+}

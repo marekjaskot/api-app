@@ -1,7 +1,12 @@
-module.export = {
+module.exports = {
     email:{
         type: String,
         unique: true,
+        required: true,
+        dropDups: true
+    },
+    password: {
+        type: String,
         required: true
     },
     firstname: {
@@ -9,5 +14,5 @@ module.export = {
     },
     lastname: {
         type: String
-}
+    }
 }
